@@ -1,21 +1,19 @@
 import { Fragment, useState } from "react";
-// import { MouseEvent } from "react";
 
-function ListGroup() {
-  let items = ["New York", "Stockholm", "Tokyo", "Paris", "Oslo"];
+// Props  {items: [], heading: String}
+interface ListGroupProps {
+  items: string[];
+  heading: string;
+}
 
-  // let selectedIndex = 0;
+// Kan skriva props.items etc överallt men går fortare att destructura props: till {}
+function ListGroup({ items, heading }: ListGroupProps) {
   // State Hook
   const [selectedIndex, setSelectedIndex] = useState(-1);
-  // array1 variabeln
-  // array2 upDater
-
-  // Event handler "list-group-item"
-  // const handleClick = (event: MouseEvent) => console.log(event.target);
 
   return (
     <Fragment>
-      <h1>List</h1>
+      <h1>{heading}</h1>
       {items.length === 0 && <p>No list found</p>}
       <ul className="list-group">
         {items.map((item, index) => (
