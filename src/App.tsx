@@ -1,18 +1,23 @@
-import ListGroup from "./components/ListGroup";
-function App() {
-  let items = ["New York", "Stockholm", "Tokyo", "Paris", "Oslo"];
+import Alert from "./components/Alert";
+// import ListGroup from "./components/ListGroup";
 
-  const handleSelectItem = (item: string) => {
-    console.log(item);
-  };
+function App() {
+  // tidigare lektioner.
+  // let items = ["New York", "Stockholm", "Tokyo", "Paris", "Oslo"];
+  // const handleSelectItem = (item: string) => {
+  //   console.log(item);
+  // };
 
   return (
     <div>
-      <ListGroup
+      <Alert>
+        Hejsan <span>Varlden</span>
+      </Alert>
+      {/* <ListGroup
         items={items}
         heading="Cities"
         onSelectItem={handleSelectItem}
-      />
+      /> */}
     </div>
   );
 }
