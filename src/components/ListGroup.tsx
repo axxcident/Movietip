@@ -4,10 +4,13 @@ import { Fragment, useState } from "react";
 interface ListGroupProps {
   items: string[];
   heading: string;
+  // function that takes in string and returns void
+  // (item: string) => void
+  onSelectItem: (item: string) => void;
 }
 
 // Kan skriva props.items etc överallt men går fortare att destructura props: till {}
-function ListGroup({ items, heading }: ListGroupProps) {
+function ListGroup({ items, heading, onSelectItem }: ListGroupProps) {
   // State Hook
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
@@ -24,7 +27,10 @@ function ListGroup({ items, heading }: ListGroupProps) {
                 : "list-group-item"
             }
             key={index}
-            onClick={() => setSelectedIndex(index)}
+            onClick={() => {
+              setSelectedIndex(index);
+              onSelectItem(item);
+            }}
           >
             {item}
           </li>
